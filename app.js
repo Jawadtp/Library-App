@@ -10,6 +10,9 @@ const bodyParser = require('body-parser')
 //MongoDB Connection
 connectDB()
 
+app.use(express.json({limit: '10mb', extended: true}))
+app.use(express.urlencoded({limit: '10mb', extended: true}))
+
 //View Engine
 app.set('view engine', 'ejs')
 app.set('views', __dirname+'/views')

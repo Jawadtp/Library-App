@@ -1,5 +1,5 @@
 <div class="container" style="padding: 0 25px; max-width: 1000px; ">
-    <form action="/books" method="POST" enctype="multipart/form-data"> 
+    <form action="/books" method="POST"> 
         <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Title</label>
         <input type="text" name="title" class="form-control" id="exampleInputEmail1">
@@ -28,20 +28,20 @@
             </div>
         </div>
         <br>
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
+        
+            <div class="pagecount">
                 <label for="pageCount" class="form-label">Page Count</label>
                 <input type="number" name="pageCount" class="form-control" id="pageCount" min="1" value="<%= book.pageCount %>">
             </div>   
             
-            <div class="col" style="margin-top: 10px;">
-                <br>
-                <div class="custom-file">
-                <input type="file" name="cover" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Select cover image</label>
-                </div>
+            <div class="fileinput" style="margin-bottom: 20px;">
+                
+                
+                    <label>Select cover image</label>
+                    <input type="file" name="cover" class="filepond">
+                
             </div>
-        </div>
+        
         
 
         <br><br>
