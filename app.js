@@ -3,6 +3,7 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const indexRouter=require('./routes/index')
 const authorRouter=require('./routes/author')
+const bookRouter = require('./routes/book')
 const connectDB = require('./database')
 const bodyParser = require('body-parser')
 
@@ -23,5 +24,6 @@ app.use(express.json())
 //Configuring routers
 app.use('/', indexRouter) //Use index.js for all routers starting with /
 app.use('/authors', authorRouter)
+app.use('/books', bookRouter)
 
 app.listen(process.env.PORT || 3000)
