@@ -97,6 +97,19 @@ router.post('/',  async (req, res) =>       //upload.single('cover'),
  
 })
 
+router.get('/:id', async (req, res)=>
+{
+    try
+    {
+        const book = await Book.findById(req.params.id).populate('author')
+        console.log(book)
+        res.render('books/show', {book})
+    }
+    catch(e)
+    {
+        console.error(e)
+    }    
+})
 function saveCover(book, coverEncoded)
 {
     if(coverEncoded!=null)
@@ -109,6 +122,58 @@ function saveCover(book, coverEncoded)
         }
     }
 }
+
+router.delete('/:id', async (req, res) =>  //Delete a book (can be done from book show page)
+{
+    try
+    {
+        let book = await Book.findById(req.params.id)
+        await book.remove({_id: req.params.id})
+        res.redirect('/books')
+    }
+    catch(e)
+    {
+        console.error(e)
+    }
+})
+
+router.get('/:id/edit', async (req, res)=> //Note: :id var is accessed using req.params.id
+{
+    try
+    {
+        const book = await Book.findById(req.params.id)
+        const author = await Author.find()
+        res.render('books/edit', {book, authors: author})
+    }
+    catch(e)
+    {
+        console.error(e)
+    }
+})
+
+router.put('/:id', async (req, res)=> //Update request
+{
+    try
+    {
+        let book=await Book.findById(req.params.id)
+        book.title = req.body.title
+        book.author = req.body.author
+        book.pageCount = req.body.pageCount
+        book.publishDate = new Date(req.body.publishDate)
+        book.description = req.body.description
+        if(req.body.cover!=null && req.body.cover!=='')
+        {
+            saveCover(book, req.body.cover)
+        }
+        await book.save()
+        res.redirect(`/books/${book.id}`)
+    }
+    catch(e)
+    {
+        console.error(e)
+    }
+})
+
 /*
 function removeBookCover(fileName)
 {
