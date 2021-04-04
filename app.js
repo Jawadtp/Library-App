@@ -4,6 +4,7 @@ const expressLayouts = require('express-ejs-layouts')
 const indexRouter=require('./routes/index')
 const authorRouter=require('./routes/author')
 const bookRouter = require('./routes/book')
+const methodOverride = require('method-override')
 const connectDB = require('./database')
 const bodyParser = require('body-parser')
 
@@ -20,6 +21,8 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(express.static('public'));
 
+//Method Override
+app.use(methodOverride('_method'))
 //Body parser
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())    
