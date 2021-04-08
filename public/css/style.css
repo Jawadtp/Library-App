@@ -1,4 +1,77 @@
+
+
 .submitbtn
 {
     margin-left: 10px;
+}
+
+.mainwrapper
+{
+    padding: 10px 30px;
+    color: hsl(200, 100%, 87%);
+    background: linear-gradient(to right, hsl(200, 100%, 8%), hsl(200, 100%, 16%));
+}
+
+.recentimage
+{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.form-wrapper
+{
+    margin-top: 25px;
+}
+
+.form-wrapper input
+{
+    margin-left: 2px;
+}
+
+.input-element
+{
+    display: inline;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 1100px) 
+{
+    .input-element
+    {
+        display: block;
+        margin-top: 10px;
+    }   
+    .form-wrapper input
+    {
+        margin-left: 15px;
+        width: 80%;
+     }
+     .name-label
+     {
+         margin-right: 70px;
+     }
+
+}
+
+.searchsubmit
+{
+    margin-left: 20px;
+
+}
+
+.books-img
+{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.author-wrapper
+{
+    margin-bottom: 20px;
+}
+
+.author-btn-wrapper
+{
+   margin-top: 0px;
+    
 }
