@@ -28,27 +28,37 @@
             </div>
         </div>
         <br>
+
+        <div class="pagecount">
+                    <label for="pageCount" class="form-label">Page Count</label>
+                    <input type="number" name="pageCount" class="form-control" id="pageCount" min="1" value="<%= book.pageCount %>">
+                </div>   
         
-            <div class="pagecount">
-                <label for="pageCount" class="form-label">Page Count</label>
-                <input type="number" name="pageCount" class="form-control" id="pageCount" min="1" value="<%= book.pageCount %>">
-            </div>   
-            
-            <div class="fileinput" style="margin-bottom: 20px;">
-                
-                
-                    <label>Select cover image</label>
-                    <input type="file" name="cover" class="filepond">
-                
+                <br> <br>
+        <div class="row">
+
+
+            <div class="col">
+                <div class="fileinput">
+                                    
+                        <label>Cover image</label>
+                        <input type="file" name="cover" class="filepond">
+                    
+                </div>
             </div>
-        
-        
+
+            <div class="col-md-10 col-lg-10 col-sm-6 col-6">
+                <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="7"><%= book.description %></textarea>
+                </div>
+            </div>
+
+           
+        </div>
 
         <br><br>
-        <div class="form-group">
-        <label for="exampleFormControlTextarea1">Description</label>
-        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"><%= book.description %></textarea>
-        </div>
+     
         
         <br><br>
         <a href="/authors/" class="btn btn-warning">Cancel</a>

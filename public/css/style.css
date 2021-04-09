@@ -50,7 +50,11 @@
      {
          margin-right: 70px;
      }
-
+     .fileinput
+    {
+         width: 10%;
+   
+    }
 }
 
 .searchsubmit
@@ -75,3 +79,10 @@
    margin-top: 0px;
     
 }
+
+.fileinput
+{
+  width: 95%;
+   
+}
+

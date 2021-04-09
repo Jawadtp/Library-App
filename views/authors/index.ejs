@@ -1,27 +1,37 @@
-<h2> Search Authors </h2>
-<form action="/authors" method="GET">
-    <label>Title</label>
-    <input type="text" name="name" value="<%= searchOptions.title %>">
+<div class="containers" style="padding-left: 10px;">
+    <h2> Search Authors </h2>
+    <form action="/authors" method="GET">
+        <label>Title</label>
+        <input type="text" name="name" value="<%= searchOptions.title %>" style="margin-left: 10px;">
 
-   
+    
 
-    <button type="submit" class="btn btn-info">Search</button>
-</form>
-<br>
+        <button type="submit" class="btn btn-info" style="margin-left: 15px;">Search</button>
+    </form>
+    <br>
 
 
-<% authors.forEach(author => { %>
-    <div class="author-wrapper">
-        <div><%=author.name%></div>
-        <div class="author-btn-wrapper">
-            <a href="/authors/<%=author.id%>" style="font-size: 20px;"><i class="fa fa-user" aria-hidden="true"></i>
-            </a> 
-            <a href="/authors/<%=author.id%>/edit" style="margin-left: 20px; font-size: 20px;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </a>
-            <form method="POST" action="/authors/<%= author.id %>?_method=DELETE">
-                <button type="submit" class="btn btn-danger" style="color: white; font-size: 13px;">Delete
-                </button>
-            </form>
+    <div class="authordisplay" style="padding-left: 20px;">
+        <div class="row">
+        <% authors.forEach(author => { %>
+            <div class="col-md-3 col-6">
+                <div class="author-wrapper" style="margin-top: 20px;">
+                    <div><%=author.name%></div>
+                    <div class="author-btn-wrapper">
+                        <a href="/authors/<%=author.id%>" style="font-size: 20px;"><i class="fa fa-user" aria-hidden="true"></i>
+                        </a> 
+                        <a href="/authors/<%=author.id%>/edit" style="margin-left: 20px; font-size: 20px;"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <form method="POST" action="/authors/<%= author.id %>?_method=DELETE">
+                            <button type="submit" class="btn btn-danger" style="color: white; font-size: 13px;">Delete
+                            </button>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+            
+        <% }) %>
         </div>
-<% }) %>
+
+    </div>
 </div>
